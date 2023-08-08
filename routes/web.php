@@ -28,3 +28,5 @@ Route::get('/home', function () {
 
 Route::get('/forminput', [PagesController::class,'FormInput']);
 
+Route::post('/welcome', [PagesController::class,'Welcome']);
+

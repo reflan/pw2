@@ -1,4 +1,5 @@
-<form action="#" method="post">
+<form action="/welcome" method="post">
+    @csrf
    <h4>Sign Up Form</h4>
    <p>first name :</p>
    <input type="text" name=first_name>
