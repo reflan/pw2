@@ -14,6 +14,11 @@ use App\Http\Controllers\PagesController;
 |
 */
 
+
+Route::get('/master', function () {
+    return view('layout.master');
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
