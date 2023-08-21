@@ -1,3 +1,10 @@
+@extends('layout.master')
+
+@section('judul')
+Form input
+@endsection
+
+@section('content')
 <form action="/welcome" method="post">
     @csrf
    <h4>Sign Up Form</h4>
@@ -27,3 +34,4 @@
 
    <input type="submit" name="sign_up" value="Sign Up">
 </form>
+@endsection

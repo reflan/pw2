@@ -1,3 +1,10 @@
+@extends('layout.master')
+
+@section('judul')
+Home
+@endsection
+
+@section('content')
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,3 +15,4 @@
         <a href="/forminput">Input data</a>
     </body>
 </html>
+@endsection

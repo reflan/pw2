@@ -15,9 +15,9 @@ use App\Http\Controllers\PagesController;
 */
 
 
-Route::get('/master', function () {
-    return view('layout.master');
-});
+// Route::get('/master', function () {
+//     return view('layout.master');
+// });
 
 Route::get('/', function () {
     return view('welcome');
@@ -32,6 +32,11 @@ Route::get('/home', function () {
 });
 
 Route::get('/forminput', [PagesController::class,'FormInput']);
-
 Route::post('/welcome', [PagesController::class,'Welcome']);
+
+Route::get('/datatable', function () {
+    return view('datatable.index');
+});
+
+
 

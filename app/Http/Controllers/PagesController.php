@@ -11,7 +11,6 @@ class PagesController extends Controller
     }
 
     public function Welcome(Request $request){
-        dd($request);die;
 
         $firstName = $request['first_name'];
         $lastName = $request['last_name'];

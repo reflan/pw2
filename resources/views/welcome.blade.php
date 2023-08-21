@@ -1,3 +1,10 @@
+@extends('layout.master')
+
+@section('judul')
+Welcome
+@endsection
+
+@section('content')
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -27,3 +34,4 @@
     </body>
     
 </html>
+@endsection
