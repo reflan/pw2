@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\CastController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,9 @@ Route::post('/welcome', [PagesController::class,'Welcome']);
 Route::get('/datatable', function () {
     return view('datatable.index');
 });
+
+// CRUD CAST
+Route::get('/cast', [CastController::class,'index']);
 
 
 
