@@ -41,6 +41,11 @@ Route::get('/datatable', function () {
 
 // CRUD CAST
 Route::get('/cast', [CastController::class,'index']);
+Route::get('/cast/create', [CastController::class,'create']);
+Route::post('/cast', [CastController::class,'store']);
+
+Route::get('/cast/{cast_id}/edit', [CastController::class,'edit']);
+Route::put('/cast/{cast_id}', [CastController::class,'update']);
 
 
 

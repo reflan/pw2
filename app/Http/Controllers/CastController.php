@@ -27,6 +27,7 @@ class CastController extends Controller
     public function create()
     {
         //
+        return view('Cast.create');
     }
 
     /**
@@ -37,7 +38,22 @@ class CastController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cast = new Cast;
+
+        $request->validate([
+            'nama' => 'required',
+            'umur' => 'required',
+            'bio' => 'required',
+        ]);
+
+        $cast->nama = $request->nama;
+        $cast->umur = $request->umur;
+        $cast->bio = $request->bio;
+
+        $cast->save();
+
+        return redirect('/cast');
+
     }
 
     /**
@@ -59,7 +75,10 @@ class CastController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cast = Cast::where('id',$id)->first();
+        
+        return view('cast.edit', compact('cast'));
+
     }
 
     /**
@@ -71,7 +90,20 @@ class CastController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'nama' => 'required',
+            'umur' => 'required',
+            'bio' => 'required',
+        ]);
+
+        $cast = Cast::find($id);
+        $cast->nama = $request->nama;
+        $cast->umur = $request->umur;
+        $cast->bio = $request->bio;
+        $cast->save();
+
+        return redirect('/cast');
+
     }
 
     /**
