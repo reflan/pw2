@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\CastController;
+use App\Http\Controllers\FilmController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,9 +44,20 @@ Route::get('/datatable', function () {
 Route::get('/cast', [CastController::class,'index']);
 Route::get('/cast/create', [CastController::class,'create']);
 Route::post('/cast', [CastController::class,'store']);
-
 Route::get('/cast/{cast_id}/edit', [CastController::class,'edit']);
 Route::put('/cast/{cast_id}', [CastController::class,'update']);
+Route::delete('/cast/{cast_id}', [CastController::class,'destroy']);
+
+// CRUD FILM
+Route::get('/film', [FilmController::class,'index']);
+Route::get('/film/create', [FilmController::class,'create']);
+Route::post('/film', [FilmController::class,'store']);
+Route::get('/film/{film_id}/edit', [FilmController::class,'edit']);
+Route::put('/film/{film_id}', [FilmController::class,'update']);
+Route::delete('/film/{film_id}', [FilmController::class,'destroy']);
+
+
+
 
 
 

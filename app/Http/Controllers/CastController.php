@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Cast;
+use RealRashid\SweetAlert\Facades\Alert;
 
 
 class CastController extends Controller
@@ -50,10 +51,16 @@ class CastController extends Controller
         $cast->umur = $request->umur;
         $cast->bio = $request->bio;
 
-        $cast->save();
+        $simpan = $cast->save();
 
-        return redirect('/cast');
+        if($simpan){
+            Alert::success('Success', 'Data Berhasil ditambah');
+            return redirect('/cast');
+        }else{
+            Alert::error('Failed', 'Data Gagal ditambah');
+        }
 
+        
     }
 
     /**
@@ -100,9 +107,15 @@ class CastController extends Controller
         $cast->nama = $request->nama;
         $cast->umur = $request->umur;
         $cast->bio = $request->bio;
-        $cast->save();
-
-        return redirect('/cast');
+        
+        $ubah = $cast->save();
+        
+        if($ubah ){
+            Alert::success('Success', 'Data Berhasil diubah');
+            return redirect('/cast');
+        }else{
+            Alert::error('Failed', 'Data Gagal diubah');
+        }
 
     }
 
@@ -114,6 +127,15 @@ class CastController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cast = Cast::find($id);
+        $hapus = $cast ->delete();
+
+        if($hapus ){
+            Alert::success('Success', 'Data Berhasil di Hapus');
+            return redirect('/cast');
+        }else{
+            Alert::error('Failed', 'Data Gagal di Hapus');
+        }
+        return redirect('/cast');
     }
 }

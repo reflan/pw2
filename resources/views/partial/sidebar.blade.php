@@ -74,6 +74,12 @@
                           <p>Cast</p>
                       </a>
                   </li>
+                  <li class="nav-item">
+                    <a href="/film" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Film</p>
+                    </a>
+                </li>
               </ul>
           </li>
 
