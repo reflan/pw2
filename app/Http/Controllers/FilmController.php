@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Film;
+use App\Models\Genre;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class FilmController extends Controller
@@ -27,7 +28,8 @@ class FilmController extends Controller
      */
     public function create()
     {
-        //
+        $genre = Genre::all();
+        return view('film.create', compact('genre'));
     }
 
     /**
@@ -38,7 +40,30 @@ class FilmController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $film = new Film;
+
+        $request->validate([
+            'judul' => 'required',
+            'ringkasan' => 'required',
+            'tahun' => 'required',
+            'poster' => 'required',
+            'genre' => 'required'
+        ]);
+
+        $film->judul = $request->judul;
+        $film->ringkasan = $request->ringkasan;
+        $film->tahun = $request->tahun;
+        $film->poster = $request->poster;
+        $film->genre_id = $request->genre;
+
+        $simpan = $film->save();
+
+        if($simpan){
+            Alert::success('Success', 'Data Berhasil ditambah');
+            return redirect('/film');
+        }else{
+            Alert::error('Failed', 'Data Gagal ditambah');
+        }
     }
 
     /**
